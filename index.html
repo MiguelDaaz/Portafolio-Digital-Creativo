@@ -258,25 +258,30 @@
   
 /* 1. EL CONTENEDOR PRINCIPAL */
 .about-grid {
-  display: flex !important;       /* ¡Fuerza el modo fila! */
-  flex-direction: row !important;  /* Asegura que sea horizontal */
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap; /* Prohibe que el texto se baje */
   align-items: flex-start;
-  justify-content: center;
-  gap: 40px; 
-  max-width: 1200px;
+  gap: 30px;
+  max-width: 1000px;
   margin: 0 auto;
-  width: 100%;                     /* Que ocupe todo el ancho disponible */
 }
 
 .about-left {
-  flex: 0 0 300px;                 /* La foto no se moverá de 300px */
-  min-width: 300px;                /* No deja que se encoja */
+  width: 250px !important; /* Tamaño fijo */
+  min-width: 250px !important;
+  flex: 0 0 250px !important;
 }
 
 .about-right {
-  flex: 1;                         /* El texto toma TODO el espacio restante */
-  min-width: 300px;                /* Espacio mínimo para el texto */
+  flex: 1 !important;
+  min-width: 0; /* Evita que el texto empuje la caja hacia afuera */
 }
+
+.about-right h2 {
+  margin-top: 0;
+  font-size: 2rem;
+
 
   /* COMPETENCIAS */
   .comp-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
