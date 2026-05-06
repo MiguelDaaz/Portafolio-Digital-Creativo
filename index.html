@@ -256,56 +256,87 @@
 
  /* ABOUT */
   
-/* 1. EL CONTENEDOR PRINCIPAL */
-/* El contenedor que organiza las dos columnas */
 .about-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 20px;
-}
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 20px;
+    width: 100%;
+  }
 
-/* La columna de la foto (SIN quitar nada) */
-.about-left {
-  flex: 0 0 280px !important; /* Aquí controlas el tamaño de la foto */
-  max-width: 280px !important;
-}
+  /* Columna Izquierda: Imagen */
+  .about-left {
+    flex: 0 0 300px !important;
+    width: 300px !important;
+    min-width: 300px !important;
+  }
 
-.about-left img {
-  width: 100% !important;
-  height: auto !important;
-  border-radius: 15px;
-  display: block;
-}
+  .about-left img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
 
-/* La columna del texto (Para que todo lo demás quepa aquí) */
-.about-right {
-  flex: 1 !important;
-  display: flex;
-  flex-direction: column; /* Esto apila subtítulo, título y texto */
-  gap: 15px;
-}
+  /* Columna Derecha: Todo el texto */
+  .about-right {
+    flex: 1 !important;
+    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-/* Estilos para tus etiquetas (Para que no se rompan) */
-.info-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
+  /* Ajuste de tus etiquetas de información */
+  .info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
 
-.tag {
-  background: #222; /* O el color que tenías */
-  border: 1px solid #444;
-  border-radius: 100px;
-  padding: 5px 12px;
-  font-size: 0.75rem;
-  color: #ccc;
-}
+  .tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.82rem;
+    color: #a0a0a0;
+    white-space: nowrap;
+  }
 
+  .about-right h3 {
+    color: #7b6ef6;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .about-right h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0.5rem 0 1.5rem 0;
+    color: #ffffff;
+  }
+
+  .about-right p {
+    color: #a0a0a0;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 1.05rem;
+  }
+
+  .about-right p strong {
+    color: #ffffff;
+    font-weight: 500;
+  }
 
   /* COMPETENCIAS */
   .comp-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
