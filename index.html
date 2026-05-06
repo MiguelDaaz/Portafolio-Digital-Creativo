@@ -256,11 +256,20 @@
 
   /* ABOUT */
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
+    display: flex;
+  flex-direction: row;      /* Los pone en fila */
+  align-items: center;      /* Los alinea al centro verticalmente */
+  justify-content: center;  /* Los centra en la pantalla */
+  gap: 30px;                /* Espacio entre foto y texto */
+  margin-bottom: 50px;      /* Empuja lo de abajo para que no se pegue */
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    flex-direction: column; 
+    text-align: center;
   }
+}
 
   .about-left {
     position: sticky;
@@ -707,7 +716,6 @@
         <li>Comunicación dialógica</li>
         <li>Lenguaje oral</li>
         <li>Pensamiento crítico</li>
-        <li>Innovación</li>
       </ul>
     </div>
 
@@ -840,7 +848,7 @@
     <div>
       <div class="section-label">Contacto</div>
       <h2>¿Hablamos?<br>Estoy disponible</h2>
-      <p>Abierto a colaboraciones académicas, proyectos de datos y oportunidades de aprendizaje.</p>
+      <p>Abierto a colaboraciones académicas, proyectos de ciencia de datos y oportunidades de aprendizaje.</p>
       <a href="mailto:A00844091@tec.mx" class="btn-primary">Enviar mensaje</a>
     </div>
     <div class="contact-info">
