@@ -9,16 +9,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #1a1a24;
-    --accent: #7B6EF6;
-    --accent2: #A78BFA;
-    --accent3: #C4B5FD;
-    --text: #F0EEF8;
-    --muted: #8A8499;
-    --border: rgba(123,110,246,0.18);
-    --card: rgba(26,26,36,0.9);
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1c1c1c;
+    --accent: #888888;
+    --accent2: #aaaaaa;
+    --accent3: #cccccc;
+    --text: #f0f0f0;
+    --muted: #777777;
+    --border: rgba(160,160,160,0.15);
+    --card: rgba(28,28,28,0.9);
   }
 
   html { scroll-behavior: smooth; }
@@ -32,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* Noise texture overlay */
   body::before {
     content: '';
     position: fixed;
@@ -40,7 +39,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
-    opacity: 0.6;
+    opacity: 0.4;
   }
 
   /* NAV */
@@ -52,7 +51,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 3rem;
-    background: rgba(10,10,15,0.85);
+    background: rgba(13,13,13,0.88);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
@@ -96,21 +95,17 @@
 
   .hero-glow {
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(123,110,246,0.18) 0%, transparent 70%);
+    top: -10%; right: -5%;
+    width: 600px; height: 600px;
+    background: radial-gradient(ellipse, rgba(140,140,140,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .hero-glow2 {
     position: absolute;
-    bottom: 5%;
-    left: -5%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(167,139,250,0.09) 0%, transparent 70%);
+    bottom: 5%; left: -5%;
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(100,100,100,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -118,8 +113,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(123,110,246,0.12);
-    border: 1px solid rgba(123,110,246,0.3);
+    background: rgba(160,160,160,0.1);
+    border: 1px solid rgba(160,160,160,0.25);
     border-radius: 100px;
     padding: 0.4rem 1rem;
     font-size: 0.8rem;
@@ -134,13 +129,13 @@
   .badge-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--accent2);
     animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 0.4; transform: scale(0.8); }
   }
 
   h1 {
@@ -154,7 +149,7 @@
   }
 
   h1 span {
-    background: linear-gradient(135deg, #A78BFA 0%, #7B6EF6 40%, #C4B5FD 100%);
+    background: linear-gradient(135deg, #cccccc 0%, #888888 40%, #eeeeee 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -177,8 +172,8 @@
   }
 
   .btn-primary {
-    background: var(--accent);
-    color: #fff;
+    background: #555555;
+    color: #f0f0f0;
     border: none;
     padding: 0.9rem 2rem;
     border-radius: 8px;
@@ -191,7 +186,7 @@
     display: inline-block;
   }
 
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-primary:hover { background: #777777; transform: translateY(-1px); }
 
   .btn-outline {
     background: transparent;
@@ -208,12 +203,11 @@
     display: inline-block;
   }
 
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent3); }
+  .btn-outline:hover { border-color: var(--accent2); color: var(--accent3); }
 
   .hero-scroll {
     position: absolute;
-    bottom: 2.5rem;
-    left: 3rem;
+    bottom: 2.5rem; left: 3rem;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -223,10 +217,7 @@
     text-transform: uppercase;
   }
 
-  .scroll-line {
-    width: 48px; height: 1px;
-    background: var(--muted);
-  }
+  .scroll-line { width: 48px; height: 1px; background: var(--muted); }
 
   /* SECTIONS */
   section {
@@ -241,7 +232,7 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent2);
     margin-bottom: 1rem;
   }
 
@@ -254,87 +245,77 @@
     margin-bottom: 3rem;
   }
 
- /* ABOUT */
-  
-.about-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    justify-content: center;
-    gap: 50px;
-    max-width: 1100px;
-    margin: 4rem auto;
-    padding: 0 20px;
+  /* ── ABOUT ── */
+  .about-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 52px;
     width: 100%;
   }
 
-  /* Columna Izquierda: Imagen */
   .about-left {
-    flex: 0 0 300px !important;
-    width: 300px !important;
-    min-width: 300px !important;
+    flex: 0 0 300px;
+    width: 300px;
   }
 
   .about-left img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
     display: block;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.5);
   }
 
-  /* Columna Derecha: Todo el texto */
-  .about-right {
-    flex: 1 !important;
-    text-align: left !important;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Ajuste de tus etiquetas de información */
   .info-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 10px;
+    margin-top: 16px;
   }
 
   .tag {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 100px;
-    padding: 0.35rem 0.9rem;
-    font-size: 0.82rem;
-    color: #a0a0a0;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.8rem;
+    color: #909090;
     white-space: nowrap;
   }
 
+  .about-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
   .about-right h3 {
-    color: #7b6ef6;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
+    color: var(--accent2);
+    margin-bottom: 0.6rem;
   }
 
   .about-right h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin: 0.5rem 0 1.5rem 0;
-    color: #ffffff;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    margin-bottom: 1.4rem;
+    color: #f0f0f0;
   }
 
   .about-right p {
-    color: #a0a0a0;
-    margin-bottom: 1.2rem;
-    line-height: 1.6;
+    color: #808080;
+    margin-bottom: 1.1rem;
+    line-height: 1.75;
     font-weight: 300;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
 
   .about-right p strong {
-    color: #ffffff;
+    color: #d0d0d0;
     font-weight: 500;
   }
 
@@ -356,14 +337,14 @@
   }
 
   .comp-card:hover {
-    border-color: rgba(123,110,246,0.5);
+    border-color: rgba(160,160,160,0.4);
     transform: translateY(-2px);
   }
 
   .comp-icon {
     width: 44px; height: 44px;
     border-radius: 10px;
-    background: rgba(123,110,246,0.12);
+    background: rgba(160,160,160,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -388,12 +369,7 @@
     letter-spacing: 0.03em;
   }
 
-  .sub-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+  .sub-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
   .sub-list li {
     font-size: 0.82rem;
@@ -406,17 +382,13 @@
     content: '—';
     position: absolute;
     left: 0;
-    color: rgba(123,110,246,0.5);
+    color: rgba(160,160,160,0.4);
   }
 
   /* PROJECTS */
   .projects-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
 
-  .proj-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+  .proj-grid { display: flex; flex-direction: column; gap: 2rem; }
 
   .proj-card {
     background: var(--card);
@@ -428,24 +400,29 @@
     gap: 2rem;
     align-items: start;
     transition: border-color 0.25s, transform 0.25s;
-    cursor: default;
   }
 
   .proj-card:hover {
-    border-color: rgba(123,110,246,0.4);
+    border-color: rgba(160,160,160,0.35);
     transform: translateY(-3px);
   }
 
   .proj-card.featured {
-    border-color: rgba(123,110,246,0.35);
-    background: linear-gradient(135deg, rgba(26,26,36,0.95) 0%, rgba(30,26,50,0.95) 100%);
+    border-color: rgba(160,160,160,0.28);
+    background: linear-gradient(135deg, rgba(28,28,28,0.97) 0%, rgba(35,33,40,0.97) 100%);
+  }
+
+  /* Card con media lateral (video o imágenes) */
+  .proj-card.has-media {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 
   .proj-num {
     font-family: 'Syne', sans-serif;
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--accent2);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: 0.8rem;
@@ -484,8 +461,8 @@
   }
 
   .proj-tag {
-    background: rgba(123,110,246,0.1);
-    border: 1px solid rgba(123,110,246,0.25);
+    background: rgba(160,160,160,0.08);
+    border: 1px solid rgba(160,160,160,0.2);
     color: var(--accent3);
     padding: 0.3rem 0.8rem;
     border-radius: 6px;
@@ -501,7 +478,7 @@
     font-size: 0.88rem;
     font-weight: 500;
     text-decoration: none;
-    border-bottom: 1px solid rgba(167,139,250,0.3);
+    border-bottom: 1px solid rgba(170,170,170,0.3);
     padding-bottom: 2px;
     transition: color 0.2s, border-color 0.2s;
   }
@@ -512,11 +489,59 @@
     font-family: 'Syne', sans-serif;
     font-size: 5rem;
     font-weight: 800;
-    color: rgba(123,110,246,0.08);
+    color: rgba(160,160,160,0.06);
     line-height: 1;
     user-select: none;
     white-space: nowrap;
   }
+
+  /* ── MEDIA PLACEHOLDERS ── */
+  .media-placeholder {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px dashed rgba(160,160,160,0.25);
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #666666;
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .media-placeholder:hover {
+    border-color: rgba(160,160,160,0.45);
+    color: #999999;
+  }
+
+  .media-placeholder .ph-icon {
+    font-size: 2.2rem;
+    opacity: 0.5;
+  }
+
+  .media-placeholder.video-ph {
+    min-height: 220px;
+  }
+
+  .images-ph-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .media-placeholder.img-ph {
+    min-height: 160px;
+  }
+
+  /* Para reemplazar placeholder de video: añade un <video> o <iframe> en su lugar */
+  /* Para reemplazar placeholder de imagen: añade un <img> en su lugar */
 
   /* CONTACT */
   .contact-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
@@ -537,36 +562,23 @@
   .contact-card::before {
     content: '';
     position: absolute;
-    top: -30%;
-    right: -10%;
+    top: -30%; right: -10%;
     width: 400px; height: 400px;
-    background: radial-gradient(ellipse, rgba(123,110,246,0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(120,120,120,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  .contact-card h2 {
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    margin-bottom: 1rem;
-  }
+  .contact-card h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 1rem; }
+  .contact-card p { color: var(--muted); font-weight: 300; margin-bottom: 2rem; }
 
-  .contact-card p {
-    color: var(--muted);
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
 
   .contact-row {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 1rem 1.2rem;
-    background: rgba(10,10,15,0.6);
+    background: rgba(13,13,13,0.6);
     border: 1px solid var(--border);
     border-radius: 12px;
   }
@@ -574,7 +586,7 @@
   .contact-row-icon {
     width: 36px; height: 36px;
     border-radius: 8px;
-    background: rgba(123,110,246,0.12);
+    background: rgba(160,160,160,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -590,11 +602,7 @@
     margin-bottom: 2px;
   }
 
-  .contact-row-value {
-    font-size: 0.92rem;
-    color: var(--text);
-    font-weight: 500;
-  }
+  .contact-row-value { font-size: 0.92rem; color: var(--text); font-weight: 500; }
 
   /* FOOTER */
   footer {
@@ -607,10 +615,7 @@
     margin: 0 auto;
   }
 
-  footer p {
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
+  footer p { font-size: 0.82rem; color: var(--muted); }
 
   .footer-tec {
     font-family: 'Syne', sans-serif;
@@ -619,24 +624,20 @@
     color: var(--accent3);
   }
 
-  /* DIVIDER */
-  .full-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0;
-  }
+  .full-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 8rem 1.5rem 4rem; }
     section, .comp-full, .projects-full, .contact-full { padding: 4rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-left { position: static; }
-    .proj-card { grid-template-columns: 1fr; }
+    .about-grid { flex-direction: column; }
+    .about-left { width: 100%; flex: none; }
+    .proj-card, .proj-card.has-media { grid-template-columns: 1fr; }
     .proj-number-big { display: none; }
     .contact-card { grid-template-columns: 1fr; padding: 2rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .images-ph-grid { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -683,9 +684,10 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
+
+    <!-- IZQUIERDA: foto + tags -->
     <div class="about-left">
-      <div class="avatar-box">
-        <img src="mifoto.jpeg" alt="Mi foto de perfil" class="avatar-img">
+      <img src="mifoto.jpeg" alt="Foto de perfil de Miguel Díaz Aguirre">
       <div class="info-tags">
         <span class="tag">📍 Monterrey, NL</span>
         <span class="tag">IDM · Tec MTY</span>
@@ -694,6 +696,8 @@
         <span class="tag">Bioinformática</span>
       </div>
     </div>
+
+    <!-- DERECHA: texto -->
     <div class="about-right">
       <div class="section-label">Sobre mí</div>
       <h2>Un estudiante curioso<br>con visión técnica</h2>
@@ -707,6 +711,7 @@
         Estoy en camino de desarrollar competencias en <strong>inteligencia artificial, criptografía, optimización y redes neuronales</strong>, áreas que formarán el núcleo de mi perfil profesional.
       </p>
     </div>
+
   </div>
 </section>
 
@@ -721,7 +726,7 @@
     <div class="comp-card">
       <div class="comp-icon">⚖️</div>
       <h3>Ética y ciudadanía</h3>
-      <div class="comp-course">Modelación de Ingienería y Ciencias</div>
+      <div class="comp-course">Modelación de Ingeniería y Ciencias</div>
       <ul class="sub-list">
         <li>Aplicación de principios de sustentabilidad</li>
         <li>Análisis de impacto ambiental</li>
@@ -796,7 +801,7 @@
 
   <div class="proj-grid">
 
-    <!-- Proyecto 1 -->
+    <!-- Proyecto 01 — sin media lateral -->
     <div class="proj-card featured">
       <div>
         <div class="proj-num">Proyecto 01 · Sep 2025</div>
@@ -811,15 +816,16 @@
           <span class="proj-tag">Trabajo en equipo</span>
           <span class="proj-tag">Ingeniería y Ciencias</span>
         </div>
-        <a href= "https://docs.google.com/document/d/1Nn47Fw-ZptfW0CbBpIgn4NJLfEvqSH22UoDVkAIhNEs/edit?usp=sharing" class="proj-link" target="_blank">
+        <a href="https://docs.google.com/document/d/1Nn47Fw-ZptfW0CbBpIgn4NJLfEvqSH22UoDVkAIhNEs/edit?usp=sharing" class="proj-link" target="_blank">
           Ver reporte completo →
         </a>
       </div>
       <div class="proj-number-big">01</div>
     </div>
 
-    <!-- Proyecto 2 -->
-    <div class="proj-card">
+    <!-- Proyecto 02 — CON VIDEO a la derecha -->
+    <div class="proj-card has-media">
+      <!-- Columna izquierda: texto -->
       <div>
         <div class="proj-num">Proyecto 02 · Nov 2025</div>
         <h3>Programa "Banco Fuerte"</h3>
@@ -834,11 +840,29 @@
           <span class="proj-tag">Normas de programación</span>
         </div>
       </div>
-      <div class="proj-number-big">02</div>
+
+      <!-- Columna derecha: placeholder de video -->
+      <!-- 
+        Para sustituir el placeholder por tu video, reemplaza el div.media-placeholder
+        por cualquiera de estas opciones:
+
+        Opción A — archivo local:
+        <video controls style="width:100%;border-radius:12px;" src="banco-fuerte-demo.mp4"></video>
+
+        Opción B — YouTube embed:
+        <iframe style="width:100%;aspect-ratio:16/9;border-radius:12px;border:none;"
+          src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
+      -->
+      <div class="media-placeholder video-ph">
+        <span class="ph-icon">▶</span>
+        <strong style="color:#888;">Video del proyecto</strong>
+        <video controls style="width:100%;border-radius:12px;" src="bancofuerte.mp4"></video>
+      </div>
     </div>
 
-    <!-- Proyecto 3 -->
-    <div class="proj-card featured">
+    <!-- Proyecto 03 — CON DOS IMÁGENES a la derecha -->
+    <div class="proj-card has-media featured">
+      <!-- Columna izquierda: texto -->
       <div>
         <div class="proj-num">Proyecto 03 · Abr 2026</div>
         <h3>Análisis de Variantes del SARS-CoV-2</h3>
@@ -854,7 +878,24 @@
           <span class="proj-tag">Filogenética</span>
         </div>
       </div>
-      <div class="proj-number-big">03</div>
+
+      <!-- Columna derecha: cuadrícula de 2 imágenes -->
+      <!--
+        Para sustituir cada placeholder por una imagen real, reemplaza el div.media-placeholder
+        por: <img src="tu-imagen.png" alt="descripción" style="width:100%;border-radius:10px;object-fit:cover;">
+      -->
+      <div class="images-ph-grid">
+        <<img src="barras.jpg" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px;">
+          <span class="ph-icon">🖼</span>
+          <strong style="color:#888;">Imagen 1</strong>
+          <span>Ej: árbol filogenético</span>
+        </div>
+        <img src="arbol.jpg" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px;">
+          <span class="ph-icon">🖼</span>
+          <strong style="color:#888;">Imagen 2</strong>
+          <span>Ej: gráfica de bases</span>
+        </div>
+      </div>
     </div>
 
   </div>
