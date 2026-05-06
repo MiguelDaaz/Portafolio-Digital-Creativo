@@ -255,13 +255,20 @@
   }
 
   /* ABOUT */
-  .about-grid {
-    display: flex;
-  flex-direction: row;      /* Los pone en fila */
-  align-items: center;      /* Los alinea al centro verticalmente */
-  justify-content: center;  /* Los centra en la pantalla */
-  gap: 30px;                /* Espacio entre foto y texto */
-  margin-bottom: 50px;      /* Empuja lo de abajo para que no se pegue */
+  
+.about-grid {
+  display: flex;          /* Esto activa el modo "uno al lado del otro" */
+  align-items: center;    /* Centra la imagen y el texto verticalmente */
+  gap: 20px;              /* Deja un espacio entre la foto y el texto */
+  flex-wrap: wrap;        /* Si la pantalla es muy chica (celular), se bajan solos */
+}
+
+.about-left {
+  flex: 0 0 auto;         /* La imagen mantiene su tamaño */
+}
+
+.about-right {
+  flex: 1;                /* El texto ocupa el resto del espacio */
 }
 
 @media (max-width: 768px) {
