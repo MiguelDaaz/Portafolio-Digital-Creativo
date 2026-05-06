@@ -258,86 +258,24 @@
   
 /* 1. EL CONTENEDOR PRINCIPAL */
 .about-grid {
-  display: flex;
-  flex-direction: row; /* Fuerza que sea fila */
+  display: flex !important;       /* ¡Fuerza el modo fila! */
+  flex-direction: row !important;  /* Asegura que sea horizontal */
   align-items: flex-start;
-  gap: 50px; /* Espacio generoso entre foto y texto */
-  max-width: 1100px;
-  margin: 4rem auto;
-  padding: 0 20px;
+  justify-content: center;
+  gap: 40px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;                     /* Que ocupe todo el ancho disponible */
 }
 
-/* 2. LA COLUMNA DE LA IZQUIERDA (FOTO) */
 .about-left {
-  flex: 0 0 300px; /* Aquí controlas el tamaño. 300px es ideal. */
-  position: relative;
+  flex: 0 0 300px;                 /* La foto no se moverá de 300px */
+  min-width: 300px;                /* No deja que se encoja */
 }
 
-.about-left img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px; /* Bordes suaves */
-  object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Le da profundidad */
-  display: block;
-}
-
-/* 3. LA COLUMNA DE LA DERECHA (TEXTO) */
 .about-right {
-  flex: 1;
-  text-align: left; /* Asegura que el texto empiece a la izquierda */
-}
-
-.about-right h3 {
-  color: #7b6ef6; /* Color de tu gradiente */
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-}
-
-.about-right h2 {
-  font-size: 2.8rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  color: var(--text);
-}
-
-/* 4. LAS ETIQUETAS (TAGS) */
-.info-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 2rem;
-}
-
-.tag {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 100px;
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  color: #a0a0a0;
-}
-
-/* 5. RESPONSIVO (PARA CELULAR) */
-@media (max-width: 850px) {
-  .about-grid {
-    flex-direction: column; /* Se pone uno abajo del otro en celular */
-    align-items: center;
-    text-align: center;
-  }
-  .about-left {
-    flex: 0 0 auto;
-    width: 80%; /* La foto se hace un poco más grande en celular */
-    max-width: 300px;
-  }
-  .about-right {
-    text-align: center;
-  }
-  .info-tags {
-    justify-content: center;
-  }
+  flex: 1;                         /* El texto toma TODO el espacio restante */
+  min-width: 300px;                /* Espacio mínimo para el texto */
 }
 
   /* COMPETENCIAS */
