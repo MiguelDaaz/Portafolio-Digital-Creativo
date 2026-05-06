@@ -263,12 +263,16 @@
   flex-wrap: wrap;        /* Si la pantalla es muy chica (celular), se bajan solos */
 }
 
-.about-left {
-  flex: 0 0 auto;         /* La imagen mantiene su tamaño */
+.about-left img {
+  width: 250px;       /* Ajusta este número a tu gusto (más grande o más chico) */
+  height: 250px;      /* Para que sea un cuadrado perfecto */
+  object-fit: cover;  /* Para que no se vea estirada o aplastada */
+  border-radius: 15px; /* Opcional: bordes redondeados */
+  display: block;     /* Evita espacios raros abajo de la foto */
 }
 
 .about-right {
-  flex: 1;                /* El texto ocupa el resto del espacio */
+  max-width: 600px;               /* El texto ocupa el resto del espacio */
 }
 
 @media (max-width: 768px) {
