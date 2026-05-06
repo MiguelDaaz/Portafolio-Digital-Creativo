@@ -13,12 +13,12 @@
     --bg2: #f8f9fc;
     --bg3: #f1f3f5;
     --accent: #111111;
-    --accent2: #111111;
-    --accent3: #111111;
-    --text: #1a1a1a;
-    --muted: #111111;
-    --border: rgba(0,0,0,0.15);
-    --card: rgba(255,255,255,0.9);
+    --accent2: #444444;
+    --accent3: #222222;
+    --text: #111111;
+    --muted: #555555;
+    --border: rgba(0,0,0,0.12);
+    --card: #ffffff;
   }
 
   html { scroll-behavior: smooth; }
@@ -51,7 +51,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.2rem 3rem;
-    background: rgba(13,13,13,0.88);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
@@ -61,7 +61,7 @@
     font-weight: 800;
     font-size: 1.1rem;
     letter-spacing: -0.03em;
-    color: var(--accent2);
+    color: var(--text);
   }
 
   .nav-links {
@@ -97,7 +97,7 @@
     position: absolute;
     top: -10%; right: -5%;
     width: 600px; height: 600px;
-    background: radial-gradient(ellipse, rgba(140,140,140,0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.04) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -105,7 +105,7 @@
     position: absolute;
     bottom: 5%; left: -5%;
     width: 400px; height: 400px;
-    background: radial-gradient(ellipse, rgba(100,100,100,0.07) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.03) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -113,12 +113,12 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(160,160,160,0.1);
-    border: 1px solid rgba(160,160,160,0.25);
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.12);
     border-radius: 100px;
     padding: 0.4rem 1rem;
     font-size: 0.8rem;
-    color: var(--accent3);
+    color: var(--accent2);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 500;
@@ -129,7 +129,7 @@
   .badge-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--accent2);
+    background: #333333;
     animation: pulse 2s infinite;
   }
 
@@ -146,10 +146,11 @@
     letter-spacing: -0.04em;
     margin-bottom: 1.5rem;
     max-width: 900px;
+    color: var(--text);
   }
 
   h1 span {
-    background: linear-gradient(135deg, #cccccc 0%, #888888 40%, #eeeeee 100%);
+    background: linear-gradient(135deg, #444444 0%, #999999 40%, #333333 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -172,8 +173,8 @@
   }
 
   .btn-primary {
-    background: #555555;
-    color: #f0f0f0;
+    background: #111111;
+    color: #ffffff;
     border: none;
     padding: 0.9rem 2rem;
     border-radius: 8px;
@@ -186,12 +187,12 @@
     display: inline-block;
   }
 
-  .btn-primary:hover { background: #777777; transform: translateY(-1px); }
+  .btn-primary:hover { background: #333333; transform: translateY(-1px); }
 
   .btn-outline {
     background: transparent;
     color: var(--muted);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(0,0,0,0.2);
     padding: 0.9rem 2rem;
     border-radius: 8px;
     font-family: 'DM Sans', sans-serif;
@@ -203,7 +204,7 @@
     display: inline-block;
   }
 
-  .btn-outline:hover { border-color: var(--accent2); color: var(--accent3); }
+  .btn-outline:hover { border-color: #111111; color: #111111; }
 
   .hero-scroll {
     position: absolute;
@@ -243,9 +244,10 @@
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin-bottom: 3rem;
+    color: var(--text);
   }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   .about-grid {
     display: flex;
     flex-direction: row;
@@ -264,7 +266,7 @@
     height: auto;
     border-radius: 18px;
     display: block;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15);
   }
 
   .info-tags {
@@ -275,12 +277,12 @@
   }
 
   .tag {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
     border-radius: 100px;
     padding: 0.3rem 0.85rem;
     font-size: 0.8rem;
-    color: #909090;
+    color: #444444;
     white-space: nowrap;
   }
 
@@ -303,11 +305,11 @@
   .about-right h2 {
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     margin-bottom: 1.4rem;
-    color: #f0f0f0;
+    color: var(--text);
   }
 
   .about-right p {
-    color: #808080;
+    color: var(--muted);
     margin-bottom: 1.1rem;
     line-height: 1.75;
     font-weight: 300;
@@ -315,7 +317,7 @@
   }
 
   .about-right p strong {
-    color: #d0d0d0;
+    color: #111111;
     font-weight: 500;
   }
 
@@ -329,7 +331,7 @@
   }
 
   .comp-card {
-    background: var(--card);
+    background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 1.8rem;
@@ -337,14 +339,14 @@
   }
 
   .comp-card:hover {
-    border-color: rgba(160,160,160,0.4);
+    border-color: rgba(0,0,0,0.25);
     transform: translateY(-2px);
   }
 
   .comp-icon {
     width: 44px; height: 44px;
     border-radius: 10px;
-    background: rgba(160,160,160,0.1);
+    background: rgba(0,0,0,0.06);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,7 +365,7 @@
 
   .comp-course {
     font-size: 0.78rem;
-    color: var(--accent3);
+    color: var(--accent2);
     font-weight: 500;
     margin-bottom: 1rem;
     letter-spacing: 0.03em;
@@ -382,7 +384,7 @@
     content: '—';
     position: absolute;
     left: 0;
-    color: rgba(160,160,160,0.4);
+    color: rgba(0,0,0,0.25);
   }
 
   /* PROJECTS */
@@ -391,7 +393,7 @@
   .proj-grid { display: flex; flex-direction: column; gap: 2rem; }
 
   .proj-card {
-    background: var(--card);
+    background: var(--bg2);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 2.5rem;
@@ -403,16 +405,15 @@
   }
 
   .proj-card:hover {
-    border-color: rgba(160,160,160,0.35);
+    border-color: rgba(0,0,0,0.25);
     transform: translateY(-3px);
   }
 
   .proj-card.featured {
-    border-color: rgba(160,160,160,0.28);
-    background: linear-gradient(135deg, rgba(28,28,28,0.97) 0%, rgba(35,33,40,0.97) 100%);
+    border-color: rgba(0,0,0,0.1);
+    background: #f5f5f5;
   }
 
-  /* Card con media lateral (video o imágenes) */
   .proj-card.has-media {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -461,9 +462,9 @@
   }
 
   .proj-tag {
-    background: rgba(160,160,160,0.08);
-    border: 1px solid rgba(160,160,160,0.2);
-    color: var(--accent3);
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333333;
     padding: 0.3rem 0.8rem;
     border-radius: 6px;
     font-size: 0.78rem;
@@ -474,59 +475,25 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--accent2);
+    color: #333333;
     font-size: 0.88rem;
     font-weight: 500;
     text-decoration: none;
-    border-bottom: 1px solid rgba(170,170,170,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
     padding-bottom: 2px;
     transition: color 0.2s, border-color 0.2s;
   }
 
-  .proj-link:hover { color: var(--text); border-color: var(--muted); }
+  .proj-link:hover { color: #000000; border-color: #000000; }
 
   .proj-number-big {
     font-family: 'Syne', sans-serif;
     font-size: 5rem;
     font-weight: 800;
-    color: rgba(160,160,160,0.06);
+    color: rgba(0,0,0,0.05);
     line-height: 1;
     user-select: none;
     white-space: nowrap;
-  }
-
-  /* ── MEDIA PLACEHOLDERS ── */
-  .media-placeholder {
-    width: 100%;
-    border-radius: 12px;
-    border: 2px dashed rgba(160,160,160,0.25);
-    background: rgba(255,255,255,0.02);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #666666;
-    font-size: 0.85rem;
-    font-weight: 400;
-    text-align: center;
-    padding: 1.5rem;
-    transition: border-color 0.2s;
-    cursor: pointer;
-  }
-
-  .media-placeholder:hover {
-    border-color: rgba(160,160,160,0.45);
-    color: #999999;
-  }
-
-  .media-placeholder .ph-icon {
-    font-size: 2.2rem;
-    opacity: 0.5;
-  }
-
-  .media-placeholder.video-ph {
-    min-height: 400px;
   }
 
   .images-ph-grid {
@@ -535,13 +502,6 @@
     gap: 12px;
     width: 100%;
   }
-
-  .media-placeholder.img-ph {
-    min-height: 160px;
-  }
-
-  /* Para reemplazar placeholder de video: añade un <video> o <iframe> en su lugar */
-  /* Para reemplazar placeholder de imagen: añade un <img> en su lugar */
 
   /* CONTACT */
   .contact-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
@@ -564,11 +524,11 @@
     position: absolute;
     top: -30%; right: -10%;
     width: 400px; height: 400px;
-    background: radial-gradient(ellipse, rgba(120,120,120,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.03) 0%, transparent 70%);
     pointer-events: none;
   }
 
-  .contact-card h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 1rem; }
+  .contact-card h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 1rem; color: var(--text); }
   .contact-card p { color: var(--muted); font-weight: 300; margin-bottom: 2rem; }
 
   .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
@@ -578,7 +538,7 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 1.2rem;
-    background: rgba(13,13,13,0.6);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 12px;
   }
@@ -586,7 +546,7 @@
   .contact-row-icon {
     width: 36px; height: 36px;
     border-radius: 8px;
-    background: rgba(160,160,160,0.1);
+    background: rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -621,7 +581,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--accent3);
+    color: var(--accent2);
   }
 
   .full-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
@@ -640,6 +600,8 @@
     .images-ph-grid { grid-template-columns: 1fr; }
   }
 </style>
+</head>
+<body>
 
 <!-- NAV -->
 <nav>
@@ -684,8 +646,6 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
-
-    <!-- IZQUIERDA: foto + tags -->
     <div class="about-left">
       <img src="mifoto.jpeg" alt="Foto de perfil de Miguel Díaz Aguirre">
       <div class="info-tags">
@@ -696,8 +656,6 @@
         <span class="tag">Bioinformática</span>
       </div>
     </div>
-
-    <!-- DERECHA: texto -->
     <div class="about-right">
       <div class="section-label">Sobre mí</div>
       <h2>Un estudiante curioso<br>con visión a futuro</h2>
@@ -711,7 +669,6 @@
         Estoy en camino de desarrollar competencias en <strong>inteligencia artificial, criptografía, optimización y redes neuronales</strong>, áreas que formarán el núcleo de mi perfil profesional.
       </p>
     </div>
-
   </div>
 </section>
 
@@ -801,7 +758,6 @@
 
   <div class="proj-grid">
 
-    <!-- Proyecto 01 — sin media lateral -->
     <div class="proj-card featured">
       <div>
         <div class="proj-num">Proyecto 01 · Sep 2025</div>
@@ -823,9 +779,7 @@
       <div class="proj-number-big">01</div>
     </div>
 
-    <!-- Proyecto 02 — CON VIDEO a la derecha -->
     <div class="proj-card has-media">
-      <!-- Columna izquierda: texto -->
       <div>
         <div class="proj-num">Proyecto 02 · Nov 2025</div>
         <h3>Programa "Banco Fuerte"</h3>
@@ -840,28 +794,13 @@
           <span class="proj-tag">Normas de programación</span>
         </div>
       </div>
-
-      <!-- Columna derecha: placeholder de video -->
-      <!-- 
-        Para sustituir el placeholder por tu video, reemplaza el div.media-placeholder
-        por cualquiera de estas opciones:
-
-        Opción A — archivo local:
-        <video controls style="width:100%;border-radius:12px;" src="banco-fuerte-demo.mp4"></video>
-
-        Opción B — YouTube embed:
-        <iframe style="width:100%;aspect-ratio:16/9;border-radius:12px;border:none;"
-          src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe>
-      -->
-      <video controls style="width: 100%; border-radius: 12px; background-color: #111; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-      <source src="bancofuerte.mp4" type="video/mp4">
-      Tu navegador no soporta videos.
+      <video controls style="width: 100%; border-radius: 12px; background-color: #f0f0f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <source src="bancofuerte.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
       </video>
     </div>
 
-    <!-- Proyecto 03 — CON DOS IMÁGENES a la derecha -->
     <div class="proj-card has-media featured">
-      <!-- Columna izquierda: texto -->
       <div>
         <div class="proj-num">Proyecto 03 · Abr 2026</div>
         <h3>Análisis de Variantes del SARS-CoV-2</h3>
@@ -877,16 +816,9 @@
           <span class="proj-tag">Filogenética</span>
         </div>
       </div>
-
-      <!-- Columna derecha: cuadrícula de 2 imágenes -->
-      <!--
-        Para sustituir cada placeholder por una imagen real, reemplaza el div.media-placeholder
-        por: <img src="tu-imagen.png" alt="descripción" style="width:100%;border-radius:10px;object-fit:cover;">
-      -->
       <div class="images-ph-grid">
         <img src="barras.png" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px;">
         <img src="arbol.png" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px;">
-        </div>
       </div>
     </div>
 
@@ -942,3 +874,6 @@
   <p>© 2026 Miguel Díaz Aguirre · Portafolio Digital Creativo</p>
   <span class="footer-tec">Tecnológico de Monterrey</span>
 </footer>
+
+</body>
+</html>
