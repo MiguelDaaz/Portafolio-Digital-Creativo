@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miguel Díaz Aguirre — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #1a1a24;
+    --accent: #7B6EF6;
+    --accent2: #A78BFA;
+    --accent3: #C4B5FD;
+    --text: #F0EEF8;
+    --muted: #8A8499;
+    --border: rgba(123,110,246,0.18);
+    --card: rgba(26,26,36,0.9);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+    color: var(--accent2);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem 3rem 6rem;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(123,110,246,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: 5%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(167,139,250,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(123,110,246,0.12);
+    border: 1px solid rgba(123,110,246,0.3);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    color: var(--accent3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, #A78BFA 0%, #7B6EF6 40%, #C4B5FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent3); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 48px; height: 1px;
+    background: var(--muted);
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-left {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .avatar-box {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 280px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent2);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(123,110,246,0.08) 0%, transparent 60%);
+  }
+
+  .info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .about-right p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.05rem;
+  }
+
+  .about-right p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* COMPETENCIAS */
+  .comp-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .comp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .comp-card:hover {
+    border-color: rgba(123,110,246,0.5);
+    transform: translateY(-2px);
+  }
+
+  .comp-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(123,110,246,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .comp-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .comp-course {
+    font-size: 0.78rem;
+    color: var(--accent3);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  .sub-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sub-list li {
+    font-size: 0.82rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .sub-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(123,110,246,0.5);
+  }
+
+  /* PROJECTS */
+  .projects-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+
+  .proj-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .proj-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+
+  .proj-card:hover {
+    border-color: rgba(123,110,246,0.4);
+    transform: translateY(-3px);
+  }
+
+  .proj-card.featured {
+    border-color: rgba(123,110,246,0.35);
+    background: linear-gradient(135deg, rgba(26,26,36,0.95) 0%, rgba(30,26,50,0.95) 100%);
+  }
+
+  .proj-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .proj-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .proj-date {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .proj-desc {
+    color: var(--muted);
+    font-size: 0.97rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+  }
+
+  .proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .proj-tag {
+    background: rgba(123,110,246,0.1);
+    border: 1px solid rgba(123,110,246,0.25);
+    color: var(--accent3);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent2);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(167,139,250,0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .proj-link:hover { color: var(--text); border-color: var(--muted); }
+
+  .proj-number-big {
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(123,110,246,0.08);
+    line-height: 1;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  /* CONTACT */
+  .contact-full { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+
+  .contact-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(123,110,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-card h2 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .contact-card p {
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(10,10,15,0.6);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .contact-row-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(123,110,246,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-row-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .contact-row-value {
+    font-size: 0.92rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .footer-tec {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent3);
+  }
+
+  /* DIVIDER */
+  .full-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 8rem 1.5rem 4rem; }
+    section, .comp-full, .projects-full, .contact-full { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-left { position: static; }
+    .proj-card { grid-template-columns: 1fr; }
+    .proj-number-big { display: none; }
+    .contact-card { grid-template-columns: 1fr; padding: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">MDA</div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#competencias">Competencias</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Tecnológico de Monterrey · 2026
+  </div>
+
+  <h1>Miguel Díaz<br><span>Aguirre</span></h1>
+
+  <p class="hero-desc">
+    Estudiante de Ingeniería en Ciencia de Datos en el Tec de Monterrey. Apasionado por el análisis de datos, la biología computacional y el desarrollo de soluciones inteligentes.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+    <a href="#contacto" class="btn-outline">Contactar</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="scroll-line"></span>
+    scroll
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="avatar-box">MD</div>
+      <div class="info-tags">
+        <span class="tag">📍 Monterrey, NL</span>
+        <span class="tag">IDM · Tec MTY</span>
+        <span class="tag">C++ · R · Python</span>
+        <span class="tag">Data Science</span>
+        <span class="tag">Bioinformática</span>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="section-label">Sobre mí</div>
+      <h2>Un estudiante curioso<br>con visión técnica</h2>
+      <p>
+        Soy Miguel Díaz Aguirre, estudiante de <strong>Ingeniería en Ciencia de Datos y Matemáticas</strong> en el Tecnológico de Monterrey. Me interesa la intersección entre la computación, las matemáticas y el análisis de datos para resolver problemas reales.
+      </p>
+      <p>
+        Durante mi primer año en el Tec he desarrollado proyectos que van desde la comparación de medios de transporte desde la perspectiva de sustentabilidad, hasta el análisis de secuencias de ADN del SARS-CoV-2. Cada proyecto me ha dado una visión más amplia de lo que la ciencia de datos puede lograr.
+      </p>
+      <p>
+        Estoy en camino de desarrollar competencias en <strong>inteligencia artificial, criptografía, optimización y redes neuronales</strong>, áreas que formarán el núcleo de mi perfil profesional.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- COMPETENCIAS -->
+<div class="comp-full" id="competencias">
+  <div class="section-label">Perfil académico</div>
+  <h2>Competencias<br>desarrolladas</h2>
+  <div class="comp-grid">
+
+    <div class="comp-card">
+      <div class="comp-icon">⚖️</div>
+      <h3>Ética y ciudadanía</h3>
+      <div class="comp-course">Modelación de Ing. y Ciencias</div>
+      <ul class="sub-list">
+        <li>Aplicación de principios de sustentabilidad</li>
+        <li>Análisis de impacto ambiental</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon">🗣️</div>
+      <h3>Comunicación e Inteligencia Social</h3>
+      <div class="comp-course">Argumentation, Debate & Public Speaking</div>
+      <ul class="sub-list">
+        <li>Comunicación dialógica (SEG0604A)</li>
+        <li>Lenguaje oral (SEG0601A)</li>
+        <li>Pensamiento crítico (SEG0503A)</li>
+        <li>Innovación (SEG0201A)</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon">🧮</div>
+      <h3>Razonamiento para la Complejidad</h3>
+      <div class="comp-course">Modelación Matemática Fundamental</div>
+      <ul class="sub-list">
+        <li>Pensamiento científico (SEG0502A)</li>
+        <li>Explicación de sistemas en ing. y ciencias</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon">💻</div>
+      <h3>Transformación Digital</h3>
+      <div class="comp-course">Pensamiento Computacional para Ing.</div>
+      <ul class="sub-list">
+        <li>Aplicación de estándares y normas (SING0401A)</li>
+        <li>Evaluación del problema (SING0301A)</li>
+        <li>Tecnologías de vanguardia (SEG0702A)</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon">🧬</div>
+      <h3>Análisis de Datos Biológicos</h3>
+      <div class="comp-course">Computational Biology Analysis</div>
+      <ul class="sub-list">
+        <li>Determinación de patrones (SICT0201)</li>
+        <li>Aplicación de estándares (SICT0402)</li>
+        <li>Pensamiento científico (SEG0502)</li>
+        <li>Comprensión de otros códigos (SEG0603)</li>
+      </ul>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon">🔭</div>
+      <h3>Próximas competencias</h3>
+      <div class="comp-course">Ruta académica futura</div>
+      <ul class="sub-list">
+        <li>Inteligencia Artificial y ML</li>
+        <li>Criptografía y seguridad</li>
+        <li>Optimización determinista/estocástica</li>
+        <li>Redes neuronales y deep learning</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- PROYECTOS -->
+<div class="projects-full" id="proyectos">
+  <div class="section-label">Evidencias académicas</div>
+  <h2>Proyectos<br>destacados</h2>
+
+  <div class="proj-grid">
+
+    <!-- Proyecto 1 -->
+    <div class="proj-card featured">
+      <div>
+        <div class="proj-num">Proyecto 01 · Sep 2025</div>
+        <h3>Energía y Transporte: Autos vs Bicicleta</h3>
+        <p class="proj-date">Modelación de la Ingeniería y Ciencias</p>
+        <p class="proj-desc">
+          Estudio comparativo de tres medios de transporte —bicicleta, automóvil eléctrico y automóvil de combustión interna— analizando sus propiedades físicas, nivel de contaminación global, eficiencia energética y daño ambiental a largo plazo. Proyecto en equipo que marcó el inicio de la carrera y el desarrollo de las primeras competencias de ingeniería.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Sustentabilidad</span>
+          <span class="proj-tag">Modelación</span>
+          <span class="proj-tag">Trabajo en equipo</span>
+          <span class="proj-tag">Ingeniería y Ciencias</span>
+        </div>
+        <a href="https://docs.google.com/document/d/1Nn47FwZptfW0CbBpIgn4NJLfEvqSH22UoDVkAIhNEs/edit?usp=sharing" class="proj-link" target="_blank">
+          Ver reporte completo →
+        </a>
+      </div>
+      <div class="proj-number-big">01</div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="proj-card">
+      <div>
+        <div class="proj-num">Proyecto 02 · Nov 2025</div>
+        <h3>Programa "Banco Fuerte"</h3>
+        <p class="proj-date">Pensamiento Computacional para Ingeniería · C++</p>
+        <p class="proj-desc">
+          Sistema bancario orientado a objetos desarrollado en C++. El programa opera según las instrucciones del cliente, gestionando distintos tipos de tarjetas de crédito y cuentas bancarias. Refleja los inicios como programador en Ciencia de Datos, con énfasis en optimización de código y aplicación de estándares de ingeniería de software.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">C++</span>
+          <span class="proj-tag">POO</span>
+          <span class="proj-tag">Estructuras de datos</span>
+          <span class="proj-tag">Normas de programación</span>
+        </div>
+      </div>
+      <div class="proj-number-big">02</div>
+    </div>
+
+    <!-- Proyecto 3 -->
+    <div class="proj-card featured">
+      <div>
+        <div class="proj-num">Proyecto 03 · Abr 2026</div>
+        <h3>Análisis de Variantes del SARS-CoV-2</h3>
+        <p class="proj-date">Computational Biology Analysis · R / NCBI</p>
+        <p class="proj-desc">
+          Análisis de secuencias de ADN de diferentes variantes del coronavirus usando bases de datos de NCBI y programación en R. El proyecto identificó patrones en la composición de bases (Adenina, Timina, Guanina, Citosina) por país y construyó un árbol filogenético de 20 variantes a nivel global. Primer proyecto de análisis de datos real de la carrera y motivo de orgullo personal.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">R</span>
+          <span class="proj-tag">Bioinformática</span>
+          <span class="proj-tag">NCBI GenBank</span>
+          <span class="proj-tag">Análisis de ADN</span>
+          <span class="proj-tag">Filogenética</span>
+        </div>
+      </div>
+      <div class="proj-number-big">03</div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- CONTACTO -->
+<div class="contact-full" id="contacto">
+  <div class="contact-card">
+    <div>
+      <div class="section-label">Contacto</div>
+      <h2>¿Hablamos?<br>Estoy disponible</h2>
+      <p>Abierto a colaboraciones académicas, proyectos de datos y oportunidades de aprendizaje.</p>
+      <a href="mailto:miguel@tec.mx" class="btn-primary">Enviar mensaje</a>
+    </div>
+    <div class="contact-info">
+      <div class="contact-row">
+        <div class="contact-row-icon">🎓</div>
+        <div>
+          <div class="contact-row-label">Institución</div>
+          <div class="contact-row-value">Tecnológico de Monterrey</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">📚</div>
+        <div>
+          <div class="contact-row-label">Carrera</div>
+          <div class="contact-row-value">Ing. en Ciencia de Datos y Matemáticas</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">📍</div>
+        <div>
+          <div class="contact-row-label">Ubicación</div>
+          <div class="contact-row-value">Monterrey, Nuevo León, México</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-icon">🗓️</div>
+        <div>
+          <div class="contact-row-label">Generación</div>
+          <div class="contact-row-value">2025 — 2029</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Miguel Díaz Aguirre · Portafolio Digital Creativo</p>
+  <span class="footer-tec">Tecnológico de Monterrey</span>
+</footer>
